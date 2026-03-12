@@ -1,11 +1,76 @@
-/* --- GLOBAL LANGUAGE SWITCH LOGIC --- */
+/* --- ARTHUR B. LANCK ARCHIVE PROTOCOL: GLOBAL EDITION --- */
 
-/* 1. Hide all localized spans/divs by default */
-h1 span, p span, h2 span, h3 span, .msg-content {
+/* 1. BASE LAYOUT */
+body { 
+    background-color: #000; 
+    color: #0f0; 
+    font-family: 'Courier New', Courier, monospace; 
+    margin: 20px; 
+    line-height: 1.6; 
+    overflow-x: hidden;
+}
+
+#console { 
+    max-width: 800px; 
+    margin: 0 auto; 
+}
+
+/* 2. GLOBAL LANGUAGE HIDDEN STATE */
+/* Hide all localized elements by default */
+h1 span, 
+.sub-text span, 
+h2 span, 
+h3 span, 
+#support p span,
+.msg-content {
     display: none;
 }
 
-/* 2. Language Switch Logic */
+/* 3. LANGUAGE SELECTOR UI */
+input[type="radio"] {
+    display: none; /* Hide logic switches */
+}
+
+.lang-selector {
+    margin: 30px 0 15px 0;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    border-bottom: 1px solid #111;
+    padding-bottom: 20px;
+}
+
+.lang-selector label {
+    font-size: 0.75rem;
+    padding: 3px 10px;
+    border: 1px solid #333;
+    cursor: pointer;
+    color: #444;
+    transition: 0.2s;
+}
+
+.lang-selector label:hover {
+    color: #0f0;
+    border-color: #0f0;
+}
+
+/* 4. ACTIVE SELECTOR RADIANCE */
+#en:checked ~ #console label[for="en"],
+#es:checked ~ #console label[for="es"],
+#zh:checked ~ #console label[for="zh"],
+#ru:checked ~ #console label[for="ru"],
+#de:checked ~ #console label[for="de"],
+#fr:checked ~ #console label[for="fr"],
+#ko:checked ~ #console label[for="ko"],
+#ja:checked ~ #console label[for="ja"] {
+    border-color: #0f0;
+    color: #0f0;
+    background: #030;
+    box-shadow: 0 0 5px #0f0;
+}
+
+/* 5. GLOBAL SWITCHING LOGIC */
+/* Display elements matching the checked language */
 #en:checked ~ #console .en,
 #es:checked ~ #console .es,
 #zh:checked ~ #console .zh,
@@ -14,20 +79,20 @@ h1 span, p span, h2 span, h3 span, .msg-content {
 #fr:checked ~ #console .fr,
 #ko:checked ~ #console .ko,
 #ja:checked ~ #console .ja {
-    display: inline-block; /* Inline-block to keep flow in headers/paragraphs */
-    animation: flicker 0.3s forwards;
+    display: inline-block;
+    animation: flicker 0.3s ease-in-out;
 }
 
-/* Specific display for the message area */
+/* Block display for transmission logs */
 #en:checked ~ #console .display-area .en,
+#es:checked ~ #console .display-area .es,
+#zh:checked ~ #console .display-area .zh,
+#ru:checked ~ #console .display-area .ru,
+#de:checked ~ #console .display-area .de,
+#fr:checked ~ #console .display-area .fr,
+#ko:checked ~ #console .display-area .ko,
 #ja:checked ~ #console .display-area .ja {
     display: block;
 }
 
-/* Existing selector styles below... */
-#en:checked ~ #console .lang-selector label[for="en"],
-#ja:checked ~ #console .lang-selector label[for="ja"] {
-    border-color: #0f0;
-    color: #0f0;
-    background: #030;
-}
+/*
