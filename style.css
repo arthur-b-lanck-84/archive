@@ -14,7 +14,6 @@ body {
     margin: 0 auto; 
 }
 
-/* HEADER_INFO */
 .meta { 
     color: #444; 
     font-size: 0.75rem; 
@@ -47,7 +46,6 @@ h2, h3 {
     letter-spacing: 2px;
 }
 
-/* LANG_SELECTOR_SYSTEM */
 .lang-selector {
     margin: 30px 0 15px 0;
     display: flex;
@@ -55,7 +53,6 @@ h2, h3 {
     gap: 8px;
 }
 
-/* HIDE_DEFAULT_RADIO */
 input[type="radio"] {
     display: none;
 }
@@ -74,7 +71,6 @@ input[type="radio"] {
     border-color: #0f0;
 }
 
-/* ACTIVE_LANG_STATE */
 #en:checked + label, 
 #es:checked + label, 
 #zh:checked + label, 
@@ -82,15 +78,13 @@ input[type="radio"] {
 #de:checked + label, 
 #fr:checked + label, 
 #ko:checked + label, 
-#ja:checked + label,
-input[type="radio"]:checked + label {
+#ja:checked + label {
     border-color: #0f0;
     color: #0f0;
     background: #030;
     box-shadow: 0 0 5px #0f0;
 }
 
-/* DISPLAY_LOGIC */
 .display-area {
     min-height: 120px;
     border-left: 2px solid #0f0;
@@ -103,7 +97,6 @@ input[type="radio"]:checked + label {
     display: none;
 }
 
-/* SELECTOR_MAGIC */
 #en:checked ~ .display-area .en,
 #es:checked ~ .display-area .es,
 #zh:checked ~ .display-area .zh,
@@ -123,7 +116,6 @@ input[type="radio"]:checked + label {
     opacity: 0.7; 
 }
 
-/* GRID_INTERFACE */
 .cards-status {
     margin-top: 15px;
 }
@@ -144,7 +136,6 @@ input[type="radio"]:checked + label {
     cursor: pointer;
 }
 
-/* SUPPORT_LAYER_UPDATE */
 #support h3 {
     color: #0c0;
     margin-bottom: 20px;
@@ -164,6 +155,7 @@ input[type="radio"]:checked + label {
     color: #888;
     display: flex;
     justify-content: space-between;
+    align-items: center;
 }
 
 .address span {
@@ -176,16 +168,9 @@ input[type="radio"]:checked + label {
     font-size: 0.6rem; 
     color: #333; 
     margin-top: 25px; 
-    line-height: 1.2;
+    line-height: 1.4;
 }
 
-.legal-notice { 
-    font-size: 0.6rem; 
-    color: #333; 
-    margin-top: 15px; 
-}
-
-/* FOOTER_SECTION */
 footer { 
     margin-top: 80px; 
     padding-bottom: 40px;
@@ -194,16 +179,16 @@ footer {
     font-size: 0.65rem; 
 }
 
-/* ANIMATION_ASSETS */
 @keyframes flicker {
     0% { opacity: 0; transform: translateX(-1px); }
     50% { opacity: 0.7; }
     100% { opacity: 1; transform: translateX(0); }
 }
 
-/* MOBILE_OPTIMIZATION */
 @media (max-width: 600px) {
     body { margin: 15px; }
     .glitch { font-size: 1.5rem; }
     .display-area { padding-left: 15px; }
+    .address { flex-direction: column; align-items: flex-start; }
+    .address span { margin-left: 0; margin-top: 5px; }
 }
