@@ -16,11 +16,13 @@ body {
 }
 
 /* 2. GLOBAL LANGUAGE HIDDEN STATE */
-h1 span,
-.sub-text span,
-h2 span,
-h3 span,
+/* Localized spans stay hidden until radio:checked */
+h1 span, 
+.sub-text span, 
+h2 span, 
+h3 span, 
 #support p span,
+.legal-notice span,
 .msg-content {
     display: none;
 }
@@ -130,27 +132,28 @@ h2, h3 {
 }
 .active { border-color: #0f0; color: #0f0 !important; cursor: pointer; }
 
-/* 8. SUPPORT_LAYER */
+/* 8. SUPPORT_LAYER (CRITICAL FIX FOR ADDRESS VISIBILITY) */
 #support h3 { color: #0c0; margin-bottom: 20px; }
 .address-box { margin: 20px 0; }
-.address {
-    background: #050505;
-    padding: 12px;
-    font-size: 0.75rem;
-    word-break: break-all;
-    border-left: 2px solid #080;
-    margin-bottom: 8px;
+.address { 
+    background: #050505; 
+    padding: 12px; 
+    font-size: 0.75rem; 
+    word-break: break-all; 
+    border-left: 2px solid #080; 
+    margin-bottom: 8px; 
     color: #888;
     display: flex;
     justify-content: space-between;
     align-items: center;
 }
 
-.address span {
-    display: inline-block !important;
-    color: #0f0;
-    font-weight: bold;
-    margin-left: 10px;
+.address span { 
+    display: inline-block !important; 
+    color: #0f0; 
+    font-weight: bold; 
+    margin-left: 10px; 
+    visibility: visible !important;
 }
 
 .legal-notice {
