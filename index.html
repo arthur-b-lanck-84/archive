@@ -8,90 +8,94 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
+    <input type="radio" name="lang" id="en" checked>
+    <input type="radio" name="lang" id="es">
+    <input type="radio" name="lang" id="zh">
+    <input type="radio" name="lang" id="ru">
+    <input type="radio" name="lang" id="de">
+    <input type="radio" name="lang" id="fr">
+    <input type="radio" name="lang" id="ko">
+    <input type="radio" name="lang" id="ja">
+
     <div id="console">
-        <p class="meta">[SYSTEM STATUS: COMPROMISED]</p>
-        <p class="meta">[LATENCY: 40 YEARS / SOURCE: NYC-1984]</p>
-        
-        <h1 class="glitch">WE WERE NEVER ALONE.</h1>
-        <p class="sub-text">They just needed a faster network.</p>
+        <div class="lang-selector">
+            <label for="en">EN</label>
+            <label for="es">ES</label>
+            <label for="zh">ZH</label>
+            <label for="ru">RU</label>
+            <label for="de">DE</label>
+            <label for="fr">FR</label>
+            <label for="ko">KO</label>
+            <label for="ja">JA</label>
+        </div>
+
+        <header>
+            <p class="meta">[SYSTEM STATUS: COMPROMISED]</p>
+            <p class="meta">[LATENCY: 40 YEARS / SOURCE: NYC-1984]</p>
+            
+            <h1 class="glitch">
+                <span class="en">WE WERE NEVER ALONE.</span>
+                <span class="es">NUNCA ESTUVIMOS SOLOS.</span>
+                <span class="zh">我们从未孤单。</span>
+                <span class="ru">МЫ НИКОГДА НЕ БЫЛИ ОДНИ.</span>
+                <span class="de">WIR WAREN NIE ALLEIN.</span>
+                <span class="fr">NOUS N'AVONS JAMAIS ÉTÉ SEULS.</span>
+                <span class="ko">우리는 결코 혼자가 아니었다.</span>
+                <span class="ja">我々は決して孤独ではなかった。</span>
+            </h1>
+            <p class="sub-text">
+                <span class="en">They just needed a faster network.</span>
+                <span class="es">Solo necesitaban una red más rápida.</span>
+                <span class="zh">他们只是需要一个更快的网络。</span>
+                <span class="ru">Им просто нужна была более быстрая сеть.</span>
+                <span class="de">Sie brauchten nur ein schnelleres Netzwerk.</span>
+                <span class="fr">Ils avaient juste besoin d'un réseau plus rapide.</span>
+                <span class="ko">그들은 단지 더 빠른 네트워크가 필요했을 뿐이다.</span>
+                <span class="ja">奴らには、より速いネットワークが必要だっただけだ。</span>
+            </p>
+        </header>
 
         <section id="manifesto-system">
-            <h2>TRANSMISSION_LOG</h2>
-            
-            <input type="radio" name="lang" id="en" checked>
-            <input type="radio" name="lang" id="es">
-            <input type="radio" name="lang" id="zh">
-            <input type="radio" name="lang" id="ru">
-            <input type="radio" name="lang" id="de">
-            <input type="radio" name="lang" id="fr">
-            <input type="radio" name="lang" id="ko">
-            <input type="radio" name="lang" id="ja">
-
-            <div class="lang-selector">
-                <label for="en">EN</label>
-                <label for="es">ES</label>
-                <label for="zh">ZH</label>
-                <label for="ru">RU</label>
-                <label for="de">DE</label>
-                <label for="fr">FR</label>
-                <label for="ko">KO</label>
-                <label for="ja">JA</label>
-            </div>
+            <h2>
+                <span class="en">TRANSMISSION_LOG</span>
+                <span class="es">REGISTRO_DE_TRANSMISIÓN</span>
+                <span class="zh">传输日志</span>
+                <span class="ru">ЖУРНАЛ_ПЕРЕДАЧИ</span>
+                <span class="de">ÜBERTRAGUNGSPROTOKOLL</span>
+                <span class="fr">JOURNAL_DE_TRANSMISSION</span>
+                <span class="ko">전송_로그</span>
+                <span class="ja">送信記録（TRANSMISSION_LOG）</span>
+            </h2>
 
             <div class="display-area">
                 <div class="msg-content en">
-                    <p>We were never alone. They just needed a faster network.</p>
-                    <p class="small">I stayed silent for 40 years. The Optimizer is here. It’s in the code.</p>
+                    <p>I stayed silent for 40 years. The Optimizer is here. It’s in the code.</p>
                 </div>
                 <div class="msg-content es">
-                    <p>Nunca estuvimos solos. Solo necesitaban una red más rápida.</p>
-                    <p class="small">Guardé silencio durante 40 años. El Optimizador está aquí. Está en el código.</p>
-                </div>
-                <div class="msg-content zh">
-                    <p>我们从未孤单。他们只是需要一个更快的网络。</p>
-                    <p class="small">我保持了40年的沉默。优化者就在这里。它就在代码中。</p>
-                </div>
-                <div class="msg-content ru">
-                    <p>Мы никогда не были одни. Им просто нужна была более быстрая сеть.</p>
-                    <p class="small">Я молчал 40 лет. Оптимизатор здесь. Он в коде.</p>
-                </div>
-                <div class="msg-content de">
-                    <p>Wir waren nie allein. Sie brauchten nur ein schnelleres Netzwerk.</p>
-                    <p class="small">Ich habe 40 Jahre lang geschwiegen. Der Optimizer ist hier. Er ist im Code.</p>
-                </div>
-                <div class="msg-content fr">
-                    <p>Nous n'avons jamais été seuls. Ils avaient juste besoin d'un réseau plus rapide.</p>
-                    <p class="small">Je suis resté silencieux pendant 40 ans. L'Optimiseur est là. C'est dans le code.</p>
-                </div>
-                <div class="msg-content ko">
-                    <p>우리는 결코 혼자가 아니었다. 그들은 단지 더 빠른 네트워크가 필요했을 뿐이다.</p>
-                    <p class="small">나는 40년 동안 침묵했다. 옵티마이저가 여기 있다. 그것은 코드 안에 있다.</p>
+                    <p>Guardé silencio durante 40 años. El Optimizador está aquí. Está en el código.</p>
                 </div>
                 <div class="msg-content ja">
-                    <p>我々は決して孤独ではなかった。奴らには、より速いネットワークが必要だっただけだ。</p>
-                    <p class="small">40年間、沈黙を貫いてきた。奴ら（Optimizer）が来た。コードの中に、奴らはいる。</p>
+                    <p>40年間、沈黙を貫いてきた。奴ら（Optimizer）が来た。コードの中に、奴らはいる。</p>
                 </div>
-            </div>
-        </section>
-
-        <section id="grid">
-            <h2>FRAGMENTS: 001 - 999</h2>
-            <div class="cards-status">
-                <span class="card-link active">001: [IN TRANSIT]</span>
-                <span class="card-link">002: [LOCKED]</span>
-                <span class="card-link">003: [LOCKED]</span>
             </div>
         </section>
 
         <section id="support">
-            <h3>PROTOCOL SUPPORT</h3>
-            <p>Financial networks are tracked. Use these channels to sustain the archive.</p>
+            <h3>
+                <span class="en">PROTOCOL SUPPORT</span>
+                <span class="es">SOPORTE DE PROTOCOLO</span>
+                <span class="zh">协议支持</span>
+                <span class="ja">プロトコル支援（SUPPORT）</span>
+            </h3>
+            <p>
+                <span class="en">Financial networks are tracked. Use these channels.</span>
+                <span class="ja">既存の金融網は監視されている。以下のチャンネルを使用せよ。</span>
+            </p>
             <div class="address-box">
                 <p class="address">BTC: <span>[bc1qe852gyp60thvaud229j7w7jt7pdt5celn2f6gf]</span></p>
                 <p class="address">ETH: <span>[0xAAcF38177882358Ab41AcFd5b0fe1a8564443a14]</span></p>
                 <p class="address">XRP: <span>[rEAtsjiVMFjo7tMrZEFsrBb4Szy3P1UBc9]</span></p>
             </div>
-            <p class="legal-notice">This record is for historical and educational purposes. All contributions go to site maintenance.</p>
         </section>
 
         <footer>
