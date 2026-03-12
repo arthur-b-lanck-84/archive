@@ -1,8 +1,9 @@
-/* 基本レイアウト */
+/* --- ARTHUR B. LANCK ARCHIVE PROTOCOL --- */
+
 body { 
     background-color: #000; 
     color: #0f0; 
-    font-family: 'Courier New', monospace; 
+    font-family: 'Courier New', Courier, monospace; 
     margin: 20px; 
     line-height: 1.6; 
     overflow-x: hidden;
@@ -13,67 +14,93 @@ body {
     margin: 0 auto; 
 }
 
-/* メタ情報・装飾 */
-.meta { color: #555; font-size: 0.8rem; margin: 0; letter-spacing: 1px; }
-.glitch { font-size: 2.2rem; margin: 20px 0 0 0; color: #0f0; text-transform: uppercase; }
-.sub-text { margin-bottom: 50px; color: #0a0; font-size: 0.9rem; opacity: 0.8; }
+/* HEADER_INFO */
+.meta { 
+    color: #444; 
+    font-size: 0.75rem; 
+    margin: 0; 
+    letter-spacing: 1px; 
+    text-transform: uppercase;
+}
+
+.glitch { 
+    font-size: 2.2rem; 
+    margin: 15px 0 5px 0; 
+    color: #0f0; 
+    text-shadow: 0 0 8px rgba(0, 255, 0, 0.4);
+}
+
+.sub-text { 
+    margin-bottom: 40px; 
+    color: #080; 
+    font-size: 0.9rem; 
+    opacity: 0.8;
+}
 
 h2, h3 { 
     border-bottom: 1px solid #222; 
-    padding-bottom: 10px; 
-    margin-top: 50px; 
-    font-size: 1.1rem;
-    color: #0c0;
+    padding-bottom: 8px; 
+    margin-top: 40px; 
+    font-size: 1rem;
+    color: #0a0;
+    text-transform: uppercase;
+    letter-spacing: 2px;
 }
 
-/* 言語セレクター（ラジオボタン制御） */
+/* LANG_SWITCH_LOGIC */
+#manifesto-system input[type="radio"] {
+    display: none;
+}
+
 .lang-selector {
-    margin: 30px 0 15px 0;
+    margin: 20px 0;
     display: flex;
-    flex-wrap: wrap;
     gap: 8px;
-}
-
-.lang-selector input[type="radio"] {
-    display: none; /* ボタン本体は隠す */
+    flex-wrap: wrap;
 }
 
 .lang-selector label {
-    font-size: 0.75rem;
-    padding: 3px 10px;
-    border: 1px solid #333;
-    cursor: pointer;
+    padding: 3px 12px;
+    border: 1px solid #222;
     color: #444;
-    transition: 0.2s;
+    font-size: 0.75rem;
+    cursor: pointer;
+    transition: all 0.2s ease;
 }
 
 .lang-selector label:hover {
-    color: #0f0;
-    border-color: #0f0;
+    border-color: #0c0;
+    color: #0c0;
 }
 
-/* 選択中の言語ラベル */
-input[type="radio"]:checked + label {
+/* ACTIVE_STATE */
+#en:checked ~ .lang-selector label[for="en"],
+#es:checked ~ .lang-selector label[for="es"],
+#zh:checked ~ .lang-selector label[for="zh"],
+#ru:checked ~ .lang-selector label[for="ru"],
+#de:checked ~ .lang-selector label[for="de"],
+#fr:checked ~ .lang-selector label[for="fr"],
+#ko:checked ~ .lang-selector label[for="ko"],
+#ja:checked ~ .lang-selector label[for="ja"] {
     border-color: #0f0;
     color: #0f0;
-    background: #030;
-    box-shadow: 0 0 5px #0f0;
+    background: #010;
+    box-shadow: 0 0 5px rgba(0, 255, 0, 0.3);
 }
 
-/* 表示エリアのロジック */
 .display-area {
-    min-height: 120px;
-    border-left: 2px solid #0f0;
+    min-height: 100px;
+    border-left: 1px solid #0f0;
     padding-left: 20px;
-    margin-bottom: 40px;
+    margin: 30px 0;
     background: linear-gradient(90deg, #050505 0%, transparent 100%);
 }
 
 .msg-content {
-    display: none; /* 基本は全て隠す */
+    display: none;
 }
 
-/* セレクターマジック：チェックされたIDに対応するクラスを表示 */
+/* SELECTOR_TRIGGER */
 #en:checked ~ .display-area .en,
 #es:checked ~ .display-area .es,
 #zh:checked ~ .display-area .zh,
@@ -82,65 +109,73 @@ input[type="radio"]:checked + label {
 #fr:checked ~ .display-area .fr,
 #ko:checked ~ .display-area .ko,
 #ja:checked ~ .display-area .ja {
-    display: block;
-    animation: flicker 0.3s ease-in-out;
+    display: block !important;
+    animation: flicker 0.3s forwards;
 }
 
-/* テキスト演出 */
-.msg-content p { margin: 10px 0; }
+.msg-content p { margin: 8px 0; font-size: 1.05rem; }
 .msg-content .small { 
-    font-size: 0.85rem; 
-    color: #0a0; 
-    opacity: 0.6; 
-    font-style: italic;
+    font-size: 0.8rem; 
+    color: #080; 
+    opacity: 0.7; 
 }
 
-/* フラグメント・グリッド */
+/* GRID_INTERFACE */
+.cards-status {
+    margin-top: 15px;
+}
+
 .card-link { 
     display: inline-block; 
-    padding: 5px 10px; 
-    border: 1px solid #222; 
-    margin: 5px; 
-    font-size: 0.8rem; 
+    padding: 4px 10px; 
+    border: 1px solid #111; 
+    margin: 4px; 
+    font-size: 0.75rem; 
     color: #333;
+    text-decoration: none;
 }
+
 .active { 
     border-color: #0f0; 
     color: #0f0 !important; 
-    cursor: pointer; 
-    text-shadow: 0 0 5px #0f0;
+    cursor: pointer;
 }
 
-/* サポートセクション */
+/* SUPPORT_LAYER */
 .address { 
-    background: #080808; 
-    padding: 15px; 
-    font-size: 0.75rem; 
-    word-break: break-all; 
-    border-left: 3px solid #0f0; 
-    margin: 10px 0;
-    color: #ccc;
-}
-.legal-notice { font-size: 0.6rem; color: #333; margin-top: 20px; }
-
-/* フッター */
-footer { 
-    margin-top: 100px; 
-    padding-bottom: 50px;
-    text-align: center; 
-    color: #222; 
+    background: #050505; 
+    padding: 12px; 
     font-size: 0.7rem; 
-    letter-spacing: 2px;
+    word-break: break-all; 
+    border-left: 2px solid #080; 
+    margin: 10px 0;
+    color: #888;
 }
 
-/* アニメーション：切り替え時のノイズ */
+.legal-notice { 
+    font-size: 0.6rem; 
+    color: #333; 
+    margin-top: 15px; 
+}
+
+footer { 
+    margin-top: 80px; 
+    padding-bottom: 40px;
+    text-align: center; 
+    color: #111; 
+    font-size: 0.65rem; 
+}
+
+/* ANIMATION_ASSETS */
 @keyframes flicker {
-    0% { opacity: 0; transform: translateX(-2px); }
-    50% { opacity: 0.8; transform: translateX(1px); }
+    0% { opacity: 0; transform: translateX(-1px); }
+    50% { opacity: 0.7; }
     100% { opacity: 1; transform: translateX(0); }
 }
 
-/* モバイル最適化 */
+/* MOBILE_OPTIMIZATION */
 @media (max-width: 600px) {
-    .glitch { font-size: 1.6rem; }
-    #console { padding: 10
+    body { margin: 15px; }
+    .glitch { font-size: 1.5rem; }
+    .display-area { padding-left: 15px; }
+}
