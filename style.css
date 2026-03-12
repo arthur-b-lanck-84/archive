@@ -1,194 +1,33 @@
-/* --- ARTHUR B. LANCK ARCHIVE PROTOCOL --- */
+/* --- GLOBAL LANGUAGE SWITCH LOGIC --- */
 
-body { 
-    background-color: #000; 
-    color: #0f0; 
-    font-family: 'Courier New', Courier, monospace; 
-    margin: 20px; 
-    line-height: 1.6; 
-    overflow-x: hidden;
-}
-
-#console { 
-    max-width: 800px; 
-    margin: 0 auto; 
-}
-
-.meta { 
-    color: #444; 
-    font-size: 0.75rem; 
-    margin: 0; 
-    letter-spacing: 1px; 
-    text-transform: uppercase;
-}
-
-.glitch { 
-    font-size: 2.2rem; 
-    margin: 15px 0 5px 0; 
-    color: #0f0; 
-    text-shadow: 0 0 8px rgba(0, 255, 0, 0.4);
-}
-
-.sub-text { 
-    margin-bottom: 40px; 
-    color: #080; 
-    font-size: 0.9rem; 
-    opacity: 0.8;
-}
-
-h2, h3 { 
-    border-bottom: 1px solid #222; 
-    padding-bottom: 8px; 
-    margin-top: 40px; 
-    font-size: 1rem;
-    color: #0a0;
-    text-transform: uppercase;
-    letter-spacing: 2px;
-}
-
-.lang-selector {
-    margin: 30px 0 15px 0;
-    display: flex;
-    flex-wrap: wrap;
-    gap: 8px;
-}
-
-input[type="radio"] {
+/* 1. Hide all localized spans/divs by default */
+h1 span, p span, h2 span, h3 span, .msg-content {
     display: none;
 }
 
-.lang-selector label {
-    font-size: 0.75rem;
-    padding: 3px 10px;
-    border: 1px solid #333;
-    cursor: pointer;
-    color: #444;
-    transition: 0.2s;
+/* 2. Language Switch Logic */
+#en:checked ~ #console .en,
+#es:checked ~ #console .es,
+#zh:checked ~ #console .zh,
+#ru:checked ~ #console .ru,
+#de:checked ~ #console .de,
+#fr:checked ~ #console .fr,
+#ko:checked ~ #console .ko,
+#ja:checked ~ #console .ja {
+    display: inline-block; /* Inline-block to keep flow in headers/paragraphs */
+    animation: flicker 0.3s forwards;
 }
 
-.lang-selector label:hover {
-    color: #0f0;
-    border-color: #0f0;
+/* Specific display for the message area */
+#en:checked ~ #console .display-area .en,
+#ja:checked ~ #console .display-area .ja {
+    display: block;
 }
 
-#en:checked + label, 
-#es:checked + label, 
-#zh:checked + label, 
-#ru:checked + label, 
-#de:checked + label, 
-#fr:checked + label, 
-#ko:checked + label, 
-#ja:checked + label {
+/* Existing selector styles below... */
+#en:checked ~ #console .lang-selector label[for="en"],
+#ja:checked ~ #console .lang-selector label[for="ja"] {
     border-color: #0f0;
     color: #0f0;
     background: #030;
-    box-shadow: 0 0 5px #0f0;
-}
-
-.display-area {
-    min-height: 120px;
-    border-left: 2px solid #0f0;
-    padding-left: 20px;
-    margin-bottom: 40px;
-    background: linear-gradient(90deg, #050505 0%, transparent 100%);
-}
-
-.msg-content {
-    display: none;
-}
-
-#en:checked ~ .display-area .en,
-#es:checked ~ .display-area .es,
-#zh:checked ~ .display-area .zh,
-#ru:checked ~ .display-area .ru,
-#de:checked ~ .display-area .de,
-#fr:checked ~ .display-area .fr,
-#ko:checked ~ .display-area .ko,
-#ja:checked ~ .display-area .ja {
-    display: block;
-    animation: flicker 0.3s ease-in-out;
-}
-
-.msg-content p { margin: 8px 0; font-size: 1.05rem; }
-.msg-content .small { 
-    font-size: 0.8rem; 
-    color: #080; 
-    opacity: 0.7; 
-}
-
-.cards-status {
-    margin-top: 15px;
-}
-
-.card-link { 
-    display: inline-block; 
-    padding: 4px 10px; 
-    border: 1px solid #111; 
-    margin: 4px; 
-    font-size: 0.75rem; 
-    color: #333;
-    text-decoration: none;
-}
-
-.active { 
-    border-color: #0f0; 
-    color: #0f0 !important; 
-    cursor: pointer;
-}
-
-#support h3 {
-    color: #0c0;
-    margin-bottom: 20px;
-}
-
-.address-box {
-    margin: 20px 0;
-}
-
-.address { 
-    background: #050505; 
-    padding: 12px; 
-    font-size: 0.7rem; 
-    word-break: break-all; 
-    border-left: 2px solid #080; 
-    margin-bottom: 8px; 
-    color: #888;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-}
-
-.address span {
-    color: #0f0; 
-    font-weight: bold;
-    margin-left: 10px;
-}
-
-.legal-notice { 
-    font-size: 0.6rem; 
-    color: #333; 
-    margin-top: 25px; 
-    line-height: 1.4;
-}
-
-footer { 
-    margin-top: 80px; 
-    padding-bottom: 40px;
-    text-align: center; 
-    color: #111; 
-    font-size: 0.65rem; 
-}
-
-@keyframes flicker {
-    0% { opacity: 0; transform: translateX(-1px); }
-    50% { opacity: 0.7; }
-    100% { opacity: 1; transform: translateX(0); }
-}
-
-@media (max-width: 600px) {
-    body { margin: 15px; }
-    .glitch { font-size: 1.5rem; }
-    .display-area { padding-left: 15px; }
-    .address { flex-direction: column; align-items: flex-start; }
-    .address span { margin-left: 0; margin-top: 5px; }
 }
