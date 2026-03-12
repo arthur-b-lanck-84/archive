@@ -9,3 +9,34 @@ h2, h3 { border-bottom: 1px solid #333; padding-bottom: 10px; margin-top: 50px; 
 .address { background: #111; padding: 10px; font-size: 0.7rem; word-break: break-all; border-left: 3px solid #0f0; }
 .legal-notice { font-size: 0.6rem; color: #444; margin-top: 20px; }
 footer { margin-top: 100px; text-align: center; color: #333; font-size: 0.7rem; }
+#multilingual-manifesto {
+    margin: 40px 0;
+    border-left: 1px solid #222;
+    padding-left: 20px;
+}
+
+.msg-block {
+    margin-bottom: 30px;
+}
+
+.lang-tag {
+    font-size: 0.7rem;
+    color: #444;
+    letter-spacing: 2px;
+}
+
+.msg-block p {
+    margin: 5px 0;
+}
+
+.msg-block p.small {
+    font-size: 0.85rem;
+    color: #0a0; /* 少し暗めの緑にしてノイズ感を出す */
+    opacity: 0.7;
+}
+
+/* モバイル対応：文字が溢れないように */
+.address {
+    word-break: break-all;
+    font-size: 0.75rem;
+}
